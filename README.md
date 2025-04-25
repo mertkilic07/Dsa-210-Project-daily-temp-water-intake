@@ -35,11 +35,11 @@ This study utilizes three primary data sources: **daily temperature and humidity
 
 ### **💧 Hydration Level – WaterMinder Recommendation**  
 📌 **Source:** [WaterMinder](https://apps.apple.com/)  
-📌 **Data Type:** Recommended hydration level for a healthy individual)  
+📌 **Data Type:** Recommended hydration level for a healthy individual  
 📌 **Measurement Unit:** Milliliters per day  
 
-- WaterMinder provides **recommended hydration levels** as a goal based on general health guidelines.
-- If a person reach the goal it becames %100.  
+- WaterMinder provides **recommended hydration levels** as a goal based on general health guidelines.  
+- If a person reaches the goal, it becomes 100%.  
 - Including this recommendation in the analysis allows for a deeper understanding of **how closely actual consumption aligns with ideal hydration levels under different weather conditions**.  
 
 ### **💧 Water Intake Data – WaterMinder CSV/PDF Export**  
@@ -79,3 +79,6 @@ By combining **Meteostat’s weather data**, **WaterMinder’s hydration logs**,
 | 🔹 Final Report Submission | **May 30** |
 
 ---
+
+## 🛠️ AI Support for Data Preparation  
+To ensure data accuracy and efficiency, **AI-based tools** were utilized for **structuring and cleaning Excel files** during the preparation phase. Tasks such as **date formatting**, **column renaming**, and **handling missing values** were expedited with AI assistance, allowing for a smoother and more reliable analysis process.
