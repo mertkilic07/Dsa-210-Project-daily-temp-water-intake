@@ -1,84 +1,84 @@
 # 🌡️ Daily Temperature vs. Water Intake 💧
 
 ### 📌 Project Overview  
-Hydration is a fundamental aspect of human health, playing a crucial role in bodily functions such as temperature regulation, metabolic processes, and overall well-being. This study aims to investigate whether **daily temperature and atmospheric humidity influence water intake habits**, exploring the correlation between **average temperature data from Meteostat (Istanbul Kurtköy)**, **humidity levels**, and **personal water consumption data from WaterMinder**.  
+Hydration is a fundamental aspect of human health, playing a crucial role in bodily functions such as temperature regulation, metabolic processes, and overall well-being. This study aims to investigate whether **daily temperature and atmospheric humidity influence water intake habits**, exploring the correlation between **average temperature data from Meteostat (Istanbul Kurtköy)**, **humidity levels**, and **personal water consumption logs**.  
 
-By systematically collecting and analyzing data, this project seeks to provide empirical evidence supporting the hypothesis that **higher temperatures and lower humidity levels lead to increased water consumption**.  
+Initially, I manually tracked my daily **step count** to analyze physical activity alongside hydration behavior. However, step count is **not allowed as a variable in this project**. Therefore, I decided to use **"calories burned by step"** instead—this derived metric retains physical activity context while adhering to the project constraints.
 
-To achieve this objective, the study will integrate **daily temperature and humidity records retrieved from the Meteostat API** and **water intake logs exported from WaterMinder**. Additionally, **hydration level recommendations**, as suggested by WaterMinder for a healthy individual, will be included as a benchmark for comparison. Statistical techniques will be applied to assess the strength of the relationship between these variables. Furthermore, visualization techniques such as **scatter plots and time-series graphs** will be utilized to represent the data effectively. If significant correlations are found, the study will explore potential applications, including **predictive modeling** to estimate individual water consumption based on temperature, humidity, and hydration level recommendations.  
+By systematically collecting and analyzing data, this project seeks to provide empirical evidence supporting the hypothesis that **higher temperatures lead to increased water consumption**.  
 
-This project contributes to the broader field of behavioral and environmental analytics by examining how **climatic factors influence daily hydration habits**. The findings may provide insights that can be utilized in **personalized hydration recommendations**, particularly for individuals engaged in physical activities or those residing in extreme temperature conditions.  
+The study integrates **daily temperature and humidity records retrieved from the Meteostat API**, **personal water consumption logs exported from WaterMinder**, and **step-based calorie expenditure** tracked manually. Statistical techniques are applied to assess the strength of the relationship between these variables. Visualization techniques such as **scatter plots and time-series graphs** are utilized to effectively represent patterns in the data. If significant correlations are found, the results may serve as a foundation for future predictive models estimating hydration needs under varying weather conditions.  
+
+This project contributes to the broader field of behavioral and environmental analytics by examining how **climatic factors influence daily hydration behavior**. The findings may provide insights for **personalized hydration tracking**, especially for individuals exposed to heat or those with varying activity levels.  
 
 ---
 
 ## 🏆 Motivation  
-Drinking water is important for everyone’s health. However, for me, it always felt like a task. Since I do sports, I need to pay extra attention to my water intake. But I realized that on hot days, drinking water felt easier. Additionally, I wondered whether humidity levels also play a role in hydration behavior. This made me curious about the relationship between temperature, humidity, and water consumption, so I decided to analyze it.  
+Drinking water is essential for health, yet it often feels like a chore. As someone who is physically active, I realized that **drinking water feels easier on hot days**, and I became curious whether **humidity levels also affect this pattern**.  
 
-As a result, I developed the following hypothesis:  
+Therefore, I decided to analyze my own behavior to explore this question further.  
+My hypothesis is:  
 **"Individuals are more likely to consume greater amounts of water on hotter days and in drier conditions."**  
 
 ---
 
 ## 🔍 Data Sources  
-This study utilizes three primary data sources: **daily temperature and humidity records from Meteostat**, **hydration level recommendations from WaterMinder**, and **personal water consumption records from WaterMinder**. Below are the details of how each dataset is obtained and why they were chosen.  
 
-### **🌡️ Temperature & Humidity Data – Meteostat API**  
-📌 **Source:** [Meteostat API](https://meteostat.net/en/)  
-📌 **Location:** Istanbul Kurtköy (Closest available region to my university)  
-📌 **Data Format:** Excel (Daily average temperature & humidity)  
-📌 **Date Range:** Customizable based on study period  
+This study uses three primary data sources:  
 
-- The **Meteostat API** provides reliable historical weather data, including both **temperature and humidity levels**.  
-- To ensure **relevance to my personal environment**, I selected **Istanbul Kurtköy**, the nearest weather station to Sabancı University.  
-- The dataset consists of **daily average temperature and humidity values**, allowing for comprehensive analysis.  
-- The data is exported in **Excel format**, making it easy to integrate into statistical analysis and visualization processes.  
+### 🌡️ Temperature & Humidity Data – Meteostat API  
+- **Source:** [Meteostat API](https://meteostat.net/en/)  
+- **Location:** Istanbul Kurtköy (closest to Sabancı University)  
+- **Format:** Excel (daily average temperature & humidity)  
+- **Date Range:** Customizable based on study period  
 
-### **💧 Hydration Level – WaterMinder Recommendation**  
-📌 **Source:** [WaterMinder](https://apps.apple.com/)  
-📌 **Data Type:** Recommended hydration level for a healthy individual  
-📌 **Measurement Unit:** Milliliters per day  
+### 🔥 Calories Burned by Step – Manually Tracked  
+- **Source:** Manually calculated using health app metrics  
+- **Metric Used:** Calories burned through step count  
+- **Format:** Excel  
 
-- WaterMinder provides **recommended hydration levels** as a goal based on general health guidelines.  
-- If a person reaches the goal, it becomes 100%.  
-- Including this recommendation in the analysis allows for a deeper understanding of **how closely actual consumption aligns with ideal hydration levels under different weather conditions**.  
+> Step count was manually tracked using a mobile fitness tracker.  
+> Due to project restrictions on using step count directly, **calories burned by step** was calculated and used instead.  
 
-### **💧 Water Intake Data – WaterMinder CSV/PDF Export**  
-📌 **Source:** [WaterMinder](https://apps.apple.com/)  
-📌 **Access Method:** Subscription-based CSV/PDF export  
-📌 **Data Format:** CSV / PDF (Daily water intake in milliliters)  
-📌 **Date Range:** Full historical records available upon subscription  
-
-- **WaterMinder** offers **structured hydration data logging**, making it an ideal source for personal water intake records.  
-- The application provides **CSV and PDF export options**, enabling systematic data collection.  
-- The dataset includes **daily water consumption (ml)**, which will be used to observe trends and correlations with temperature and humidity changes.  
-
-By combining **Meteostat’s weather data**, **WaterMinder’s hydration logs**, and **hydration recommendations**, this study aims to analyze whether **higher temperatures and lower humidity levels lead to increased water intake**, contributing to a broader understanding of personal hydration behavior.  
+### 💧 Water Intake – WaterMinder CSV Export  
+- **Source:** [WaterMinder App](https://apps.apple.com/)  
+- **Access Method:** CSV export  
+- **Format:** CSV (daily water intake in milliliters)  
+- **Date Range:** Full historical logs  
 
 ---
 
 ## 📊 Analysis Plan  
+
 1. **Data Collection:**  
-   - Fetching daily temperature and humidity data from **Meteostat API (Kurtköy location)**.  
-   - Retrieving **recommended hydration levels** from WaterMinder.  
-   - Exporting **daily water intake logs from WaterMinder (CSV/PDF format)**.  
+   - Export **daily temperature and humidity data** from Meteostat  
+   - Collect **calories burned by step** data manually  
+   - Export **daily water intake logs** from WaterMinder  
 
 2. **Data Cleaning:**  
-   - Formatting dates, handling missing values, ensuring consistency.  
+   - Format date columns  
+   - Group water logs by day  
+   - Merge all datasets on common date  
+   - Remove missing values  
 
-3. **Correlation Analysis:**  
-   - Pearson correlation to determine statistical relationships between **temperature, humidity, hydration recommendations, and actual water intake**.  
+3. **Exploratory Data Analysis (EDA):**  
+   - Generate **time-series plots** for each variable  
+   - Analyze **trend consistency and variability**  
+
+4. **Correlation Analysis & Hypothesis Test:**  
+   - Run **Pearson correlation tests**  
+   - Test the hypothesis:  
+     _“Higher temperatures are positively correlated with higher water intake.”_
 
 ---
 
 ## 📅 Project Timeline  
-| Milestone | Date |
-|-----------|------|
-| 🔹 Proposal Submission (README) | **March 10** |
-| 🔹 Data Collection & EDA | **April 18** |
-| 🔹 Machine Learning Implementation | **May 23** |
-| 🔹 Final Report Submission | **May 30** |
+
+| Milestone                         | Date         |
+|----------------------------------|--------------|
+| 🔹 Proposal Submission (README)  | **March 10** |
+| 🔹 Data Collection & EDA         | **April 18** |
+| 🔹 Machine Learning Phase        | **May 23**   |
+| 🔹 Final Report Submission       | **May 30**   |
 
 ---
-
-## 🛠️ AI Support for Data Preparation  
-To ensure data accuracy and efficiency, **AI-based tools** were utilized for **structuring and cleaning Excel files** during the preparation phase. Tasks such as **date formatting**, **column renaming**, and **handling missing values** were expedited with AI assistance, allowing for a smoother and more reliable analysis process.
